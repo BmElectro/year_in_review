@@ -2,7 +2,7 @@
 const gameModesTranslator = { "400": 'Normal',"420": 'Ranked Solo',"440": 'Ranked Flex',"450": 'ARAM'}
 
 async function getAllChampsInfoDDragon(){
-    const URL = 'http://ddragon.leagueoflegends.com/cdn/12.21.1/data/en_US/champion.json'
+    const URL = 'https://ddragon.leagueoflegends.com/cdn/12.21.1/data/en_US/champion.json'
     const request = await fetch(URL)
     const dDragon = await request.json()
     return dDragon
@@ -17,7 +17,7 @@ function getChampName(dDragon, id){
 function getChampImg(dDragon, id){
     for (const [key, value] of Object.entries(dDragon.data)){
         if(value.key == id){
-            return `http://ddragon.leagueoflegends.com/cdn/img/champion/splash/${value.id}_0.jpg`
+            return `https://ddragon.leagueoflegends.com/cdn/img/champion/splash/${value.id}_0.jpg`
             
         }
     }
@@ -26,7 +26,7 @@ function getChampImgSmall(dDragon, name){
     if(name == 'FiddleSticks'){
         name = 'Fiddlesticks'
     }
-    return `http://ddragon.leagueoflegends.com/cdn/12.23.1/img/champion/${name}.png`
+    return `https://ddragon.leagueoflegends.com/cdn/12.23.1/img/champion/${name}.png`
 
     for (const [key, value] of Object.entries(dDragon.data)){
         if(value.name == name){
@@ -36,7 +36,7 @@ function getChampImgSmall(dDragon, name){
 }
 
 function getSpellImg(id){
-    return `http://ddragon.leagueoflegends.com/cdn/12.21.1/img/spell/${id}.png`
+    return `https://ddragon.leagueoflegends.com/cdn/12.21.1/img/spell/${id}.png`
 }
 function getSummonerSpellImage(id, itemDDragon){
     for (const [key, value] of Object.entries(itemDDragon.data)){
@@ -76,7 +76,7 @@ function generateStatText(stat, statText){
     }
 }
 async function getSummonerSpellsDDragon(){
-    const URL = 'http://ddragon.leagueoflegends.com/cdn/12.23.1/data/en_US/summoner.json'
+    const URL = 'https://ddragon.leagueoflegends.com/cdn/12.23.1/data/en_US/summoner.json'
     const request = await fetch(URL)
     const dDragon = await request.json()
     return dDragon
