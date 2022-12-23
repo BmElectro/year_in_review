@@ -241,11 +241,14 @@ async function createLargeStats(stat, allStats){
 
       infoKDA.innerText = 'Score: ' + value.score
       infoGameDuration.innerText = generateStatText(value.gameDuration, 'time')
+      infoWin.className = "";
       if (value.win){
         infoWin.innerText = 'Victory'
+        infoWin.classList.add('single-game-info-object')
         infoWin.classList.add('span-win')
       }else{
         infoWin.innerText = 'Defeat'
+        infoWin.classList.add('single-game-info-object')
         infoWin.classList.add('span-lose')
       }
 
