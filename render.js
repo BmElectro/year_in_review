@@ -185,9 +185,17 @@ function reRenderLargeStats(newGameMode, id, stats){
     game.getElementsByClassName('single-game-gameId')[0].setAttribute('data', newStats[indexForStats].gameID)
 
     
-    const [score, duration] = game.getElementsByClassName('single-game-info-object')
+    const [score, duration, win] = game.getElementsByClassName('single-game-info-object')
     score.innerText = 'Score: ' + newStats[indexForStats].score
     duration.innerText = generateStatText(newStats[indexForStats].gameDuration, 'time') 
+    if (newStats[indexForStats].win){
+      win.innerText = 'Victory'
+      win.classList.add('span-win')
+    }else{
+      win.innerText = 'Defeat'
+      win.classList.add('span-lose')
+    }
+
 
 
     game.getElementsByClassName('single-game-img')[0].src = getChampImg(dDragon, newStats[indexForStats].championId)
