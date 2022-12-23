@@ -12,8 +12,9 @@ import {
 } from './utils'
 import allStats from './all.json'
 
-const dDragon = await getAllChampsInfoDDragon()
-const itemsDDragon = await getSummonerSpellsDDragon()
+let  dDragon = {}
+let  itemsDDragon = {}
+
 
 
 
@@ -314,7 +315,8 @@ async function createLargeStats(stat, allStats){
 }
 export async function startRender(stats){
 
-
+  dDragon = await getAllChampsInfoDDragon()
+  itemsDDragon = await getSummonerSpellsDDragon()
   createGeneralStats(allStats[stats])
   for (const stat of Object.values(allStats[stats].stats['Normal Draft'])){
     await createLargeStats(stat, allStats[stats].stats)
