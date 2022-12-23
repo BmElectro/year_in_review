@@ -188,11 +188,15 @@ function reRenderLargeStats(newGameMode, id, stats){
     const [score, duration, win] = game.getElementsByClassName('single-game-info-object')
     score.innerText = 'Score: ' + newStats[indexForStats].score
     duration.innerText = generateStatText(newStats[indexForStats].gameDuration, 'time') 
+
+    win.className = "";
     if (newStats[indexForStats].win){
       win.innerText = 'Victory'
+      win.classList.add('single-game-info-object')
       win.classList.add('span-win')
     }else{
       win.innerText = 'Defeat'
+      win.classList.add('single-game-info-object')
       win.classList.add('span-lose')
     }
 
